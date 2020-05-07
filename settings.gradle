@@ -1,0 +1,2 @@
+rootProject.name='HoverTextApplication'
+include ':app'
