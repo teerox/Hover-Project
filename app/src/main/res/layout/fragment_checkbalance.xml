@@ -20,20 +20,20 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/network"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Select Network"
-                android:inputType="text"
-                android:padding="16dp" />
+<!--            <TextView-->
+<!--                android:id="@+id/network"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Select Network"-->
+<!--                android:inputType="text"-->
+<!--                android:padding="16dp" />-->
 
-            <Spinner
-                android:id="@+id/spinner2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:drawable/btn_dropdown"
-                android:spinnerMode="dropdown"/>
+<!--            <Spinner-->
+<!--                android:id="@+id/networkSpinner"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:background="@android:drawable/btn_dropdown"-->
+<!--                android:spinnerMode="dropdown"/>-->
             <TextView
                 android:id="@+id/bankName"
                 android:layout_width="match_parent"
@@ -42,7 +42,7 @@
                 android:inputType="text"
                 android:padding="16dp" />
             <Spinner
-                android:id="@+id/spinner1"
+                android:id="@+id/bankSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:drawable/btn_dropdown"
@@ -50,34 +50,39 @@
 
             <Button
                 android:id="@+id/getAccounts"
-                android:onClick="saveContact"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Submit"
                 android:layout_marginEnd="16dp"
                 android:layout_weight="0.3"
-              />
+                android:onClick="saveContact"
+                android:text="Submit" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:orientation="vertical"
                 android:id="@+id/displayPart"
                 android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/address"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Account List"
-                android:inputType="text"
-                android:padding="16dp" />
 
-            <EditText
-                android:id="@+id/email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-               android:text="Enter Number for Account Displayed"
-                android:padding="16dp" />
+                <TextView
+                    android:id="@+id/accountList"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="100dp"
+                    android:text="Account"
+                    android:enabled="true"/>
+
+                <EditText
+                    android:id="@+id/accountSelected"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#5A5959"
+                    android:backgroundTint="#C5C4C4"
+                    android:hint="Enter Number for Account Displayed"
+                    android:padding="16dp" />
 
             <LinearLayout
                 android:id="@+id/cancel"
@@ -89,7 +94,7 @@
 
 
                 <Button
-                    android:id="@+id/login2"
+                    android:id="@+id/checkBalance"
                     android:text="Check Balance"
                     android:onClick="cancel"
                     android:layout_width="wrap_content"
