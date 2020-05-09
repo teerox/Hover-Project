@@ -9,6 +9,13 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.navigateUp
+import com.example.hovertextapplication.databinding.ActivityMainBinding
 import com.hover.sdk.actions.HoverAction
 import com.hover.sdk.api.Hover
 import com.hover.sdk.api.HoverParameters
@@ -20,26 +27,34 @@ import java.util.*
 class MainActivity : AppCompatActivity(), Hover.DownloadListener {
 
     private val TAG = "MainActivity"
+    lateinit var binding: ActivityMainBinding
+    private lateinit var appBarConfiguration: AppBarConfiguration
+    private lateinit var navController: NavController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
+        binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
+        setSupportActionBar(binding.toolbar)
+
+        navController = this.findNavController(R.id.navHost)
+        NavigationUI.setupActionBarWithNavController(this, navController)
+        appBarConfiguration = AppBarConfiguration(navController.graph)
         Hover.initialize(applicationContext, this)
 
-        permissions_button.setOnClickListener {
-            val i = Intent(applicationContext, PermissionActivity::class.java)
-            startActivityForResult(i, 0)
-        }
-
-        val button =
-            findViewById<View>(R.id.action_button) as Button
-        button.isEnabled = true
-        button.setOnClickListener {
-                val i = HoverParameters.Builder(this@MainActivity)
-                    .request("ddd43c9c")
-                    .buildIntent()
-                startActivityForResult(i, 0)
-        }
+//        permissions_button.setOnClickListener {
+//            val i = Intent(applicationContext, PermissionActivity::class.java)
+//            startActivityForResult(i, 0)
+//        }
+//
+//        val button =
+//            findViewById<View>(R.id.action_button) as Button
+//        button.isEnabled = true
+//        button.setOnClickListener {
+//                val i = HoverParameters.Builder(this@MainActivity)
+//                    .request("ddd43c9c")
+//                    .buildIntent()
+//                startActivityForResult(i, 0)
+//        }
     }
 
     override fun onSuccess(p0: ArrayList<HoverAction>?) {
@@ -53,19 +68,25 @@ class MainActivity : AppCompatActivity(), Hover.DownloadListener {
         Log.e("Error Message",p0.toString())
     }
 
-  override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == 0 && resultCode == Activity.RESULT_OK) {
-            val sessionTextArr = data?.getStringArrayExtra("session_messages")
-            val check = sessionTextArr?.get(sessionTextArr.size - 1)
-            val myTex = findViewById<View>(R.id.text) as TextView
-            myTex.text = check
-            val uuid = data?.getStringExtra("uuid")
-            Log.e(TAG, "Return array: $check")
-            Log.e(TAG, "Return uuid: $uuid")
-        } else if (requestCode == 0 && resultCode == Activity.RESULT_CANCELED) {
-            Toast.makeText(this, "Error: " + data?.getStringExtra("error"), Toast.LENGTH_LONG).show()
-        }
+//  override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+//        super.onActivityResult(requestCode, resultCode, data)
+//        if (requestCode == 0 && resultCode == Activity.RESULT_OK) {
+//            val sessionTextArr = data?.getStringArrayExtra("session_messages")
+//            val check = sessionTextArr?.get(sessionTextArr.size - 1)
+//            val myTex = findViewById<View>(R.id.text) as TextView
+//            myTex.text = check
+//            val uuid = data?.getStringExtra("uuid")
+//            Log.e(TAG, "Return array: $check")
+//            Log.e(TAG, "Return uuid: $uuid")
+//        } else if (requestCode == 0 && resultCode == Activity.RESULT_CANCELED) {
+//            Toast.makeText(this, "Error: " + data?.getStringExtra("error"), Toast.LENGTH_LONG).show()
+//        }
+//    }
+
+
+    override fun onSupportNavigateUp(): Boolean {
+        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+
     }
 
 }

@@ -5,4 +5,39 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="bank">
+        <item>Access Bank</item>
+        <item>Fidelity Bank</item>
+        <item>FCMB</item>
+        <item>FBN</item>
+        <item>GTB</item>
+        <item>UBN</item>
+        <item>UBA</item>
+        <item>Zenith Bank</item>
+
+        <item>Ecobank</item>
+        <item>Heritage Bank</item>
+        <item>Keystone Bank</item>
+        <item>Polaris Bank</item>
+        <item>Stanbic IBTC</item>
+        <item>Standard Chartered</item>
+        <item>Sterling Bank</item>
+<!--       // <item>Titan Trust Bank Lim</item>-->
+
+        <item>Unity Bank</item>
+        <item>Wema Bank</item>
+<!--        <item>Globus Bank Lid</item>-->
+<!--        <item>SunTrust Bank Nigeria Lim</item>-->
+        <item>Providus Bank</item>
+    </string-array>
+
+    <string-array name="network">
+        <item>MTN</item>
+        <item>Airtel</item>
+        <item>Glo</item>
+        <item>9-Mobile</item>
+
+    </string-array>
+
 </resources>
