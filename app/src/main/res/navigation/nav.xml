@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.hovertextapplication.MainFragment"
+        tools:layout="@layout/activity_first_page"
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_checkBalanceFragment"
+            app:destination="@id/checkBalanceFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_sendMoneyFragment"
+            app:destination="@id/sendMoneyFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_rechargeFragment"
+            app:destination="@id/rechargeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/checkBalanceFragment"
+        tools:layout="@layout/fragment_checkbalance"
+        android:name="com.example.hovertextapplication.CheckBalanceFragment"
+        android:label="CheckBalanceFragment" />
+    <fragment
+        android:id="@+id/sendMoneyFragment"
+        tools:layout="@layout/fragment_sendmoney"
+        android:name="com.example.hovertextapplication.SendMoneyFragment"
+        android:label="SendMoneyFragment" />
+    <fragment
+        android:id="@+id/rechargeFragment"
+        tools:layout="@layout/fragment_recharge"
+        android:name="com.example.hovertextapplication.RechargeFragment"
+        android:label="RechargeFragment" />
+</navigation>
