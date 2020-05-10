@@ -34,11 +34,11 @@ class CheckBalanceFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_checkbalance,container,false)
-
         binding.displayPart.visibility = View.GONE
         val bankSpinner: Spinner = binding.bankSpinner
 
 
+        //Spinner Array of Banks
         ArrayAdapter.createFromResource(
             requireContext(),R.array.bank,
             android.R.layout.simple_spinner_item
@@ -50,7 +50,7 @@ class CheckBalanceFragment : Fragment() {
         }
 
 
-
+        //Get All Accounts
         binding.getAccounts.setOnClickListener {
           val selectedItem  = bankSpinner.selectedItem.toString()
             if(selectedItem == "Access Bank"){
@@ -64,13 +64,14 @@ class CheckBalanceFragment : Fragment() {
 
 
 
+        //Check Balance
         binding.checkBalance.setOnClickListener {
             val selectedItem  = bankSpinner.selectedItem.toString()
             if(selectedItem == "Access Bank"){
                 bankSelected = accessBankIdComplete
             }
-           val accountNumberId = binding.accountSelected.text.toString()
-            binding.accountSelected.text
+            val accountNumberId = binding.accountSelected.text.toString()
+
             val i = HoverParameters.Builder(requireContext())
                 .request(bankSelected)
                 .extra("accountSelected",accountNumberId)

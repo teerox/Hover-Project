@@ -20,20 +20,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-<!--            <TextView-->
-<!--                android:id="@+id/network"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Select Network"-->
-<!--                android:inputType="text"-->
-<!--                android:padding="16dp" />-->
-
-<!--            <Spinner-->
-<!--                android:id="@+id/networkSpinner"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:background="@android:drawable/btn_dropdown"-->
-<!--                android:spinnerMode="dropdown"/>-->
             <TextView
                 android:id="@+id/bankName"
                 android:layout_width="match_parent"
