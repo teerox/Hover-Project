@@ -79,7 +79,7 @@ class SendMoneyFragment : Fragment() {
                 .request(bankSelected)
                 .extra("accountId",accountNumberId)
                 .extra("amount",amount)
-                .extra("accountNumber",accountNumber)
+                .extra("NUBAN",accountNumber)
                 .buildIntent()
             startActivityForResult(i, 0)
         }
@@ -101,7 +101,7 @@ class SendMoneyFragment : Fragment() {
                 .request(accessBankIdComplete)
                 .extra("accountID",accountNumberId)
                 .extra("amount",amount)
-                .extra("accountNumber",accountNumber)
+                .extra("NUBAN",accountNumber)
                 .extra("accountIdToSend",accountToSend)
                 .buildIntent()
             startActivityForResult(i, 0)
@@ -136,10 +136,14 @@ class SendMoneyFragment : Fragment() {
                     }
                 }
 
-                if (check.contains("Your request failed")){
+                if (check.contains("Your request failed") ){
                     Toast.makeText(requireContext(),"Request Failed",Toast.LENGTH_LONG).show()
                     val action = SendMoneyFragmentDirections.actionSendMoneyFragmentToMainFragment()
                     findNavController().navigate(action)
+
+
+
+
                 } else if (check.contains("Successful!")){
                     binding.displayPart.visibility = View.GONE
                     binding.finalPart.visibility = View.GONE

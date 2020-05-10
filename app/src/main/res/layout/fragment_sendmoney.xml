@@ -1,124 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <ScrollView
+<layout>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/rootView"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:weightSum="2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:id="@+id/linearLayout2"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/reportAppBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_weight="1"
+            android:background="@color/colorPrimaryDark"
             android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
 
+            >
 
-            <TextView
-                android:id="@+id/bankName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Select Bank"
-                android:inputType="text"
-                android:padding="4dp" />
-            <Spinner
-                android:id="@+id/bankSpinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:drawable/btn_dropdown"
-                android:spinnerMode="dropdown"/>
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:src="@drawable/logo"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <Button
-                android:id="@+id/getAccounts"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Submit"
-                android:layout_marginEnd="16dp"
-                android:layout_weight="0.3"
-                />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rootView"
+            android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/linearLayout2"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:orientation="vertical"
-                android:id="@+id/displayPart"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:id="@+id/accountList"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:textColor="#000000"
-                    android:textSize="20sp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="50dp"
-                    android:text="Account"
-                    android:enabled="true"/>
-                <EditText
-                    android:id="@+id/accountSelected"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Enter Number for Account Displayed"
-                    android:padding="8dp"/>
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-                <EditText
-                    android:id="@+id/amount"
+
+                <TextView
+                    android:id="@+id/bankName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Enter Amount"
-                    android:padding="8dp" />
-                <EditText
-                    android:id="@+id/accountNumber"
+                    android:text="Select Bank"
+                    android:textColor="#000000"
+                    android:padding="4dp" />
+                <Spinner
+                    android:id="@+id/bankSpinner"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Enter Account Number to Send"
-                    android:padding="8dp" />
+                    android:background="@android:drawable/btn_dropdown"
+                    android:spinnerMode="dropdown"/>
+
                 <Button
-                    android:id="@+id/getAccountsToSend"
-                    android:onClick="saveContact"
+                    android:id="@+id/getAccounts"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Submit"
                     android:layout_marginEnd="16dp"
                     android:layout_weight="0.3"
-                    />
+                    android:background="@drawable/login_button"
+                    android:text="Send"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:id="@+id/displayPart"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/accountList"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:textColor="#000000"
+                        android:textSize="20sp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="50dp"
+                        android:text="Account"
+                        android:enabled="true"/>
+
+                    <EditText
+                        android:id="@+id/accountSelected"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="#CBDBF6"
+                        android:hint="Enter NUBAN ID e.g 1"
+                        android:padding="8dp" />
+
+                    <EditText
+                        android:id="@+id/amount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="#CBDBF6"
+                        android:hint="Enter Amount"
+                        android:padding="8dp" />
+                    <EditText
+                        android:id="@+id/accountNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter Account Number to Send"
+                        android:backgroundTint="#CBDBF6"
+                        android:padding="8dp" />
+
+                    <Button
+                        android:id="@+id/getAccountsToSend"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:layout_weight="0.3"
+                        android:background="@drawable/login_button"
+                        android:text="Send"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorPrimaryDark" />
 
 
-            </LinearLayout>
+                </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/finalPart"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:weightSum="1">
-                <EditText
-                    android:id="@+id/accountToSendId"
+                <LinearLayout
+                    android:id="@+id/finalPart"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Enter account ID for Account Displayed e.g 1"
-                    android:padding="8dp" />
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+                    <EditText
+                        android:id="@+id/accountToSendId"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="#CBDBF6"
+                        android:hint="Enter NUBAN ID e.g 1"
+                        android:padding="8dp" />
 
-                <Button
-                    android:id="@+id/transfer"
-                    android:text="Transfer"
-                    android:onClick="cancel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.3"
-                    />
+                    <Button
+                        android:id="@+id/transfer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.3"
+                        android:background="@drawable/login_button"
+                        android:text="Transfer"
+                        android:textColor="@color/colorPrimaryDark" />
 
+
+                </LinearLayout>
 
             </LinearLayout>
+        </ScrollView>
 
-        </LinearLayout>
-    </ScrollView>
+    </LinearLayout>
 
+</androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter
 import android.widget.TextView
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.fragment.findNavController
 import com.example.hovertextapplication.databinding.FragmentRechargeBinding
 import com.hover.sdk.api.HoverParameters
 
@@ -92,6 +93,13 @@ class RechargeFragment : Fragment() {
             binding.getAccounts.visibility = View.GONE
             binding.accountList.text= check
 
+            if (check != null) {
+                if (check.contains("Connection problem")){
+                    Toast.makeText(requireContext(),"Request Failed",Toast.LENGTH_LONG).show()
+                    val action = RechargeFragmentDirections.actionRechargeFragmentToMainFragment()
+                    findNavController().navigate(action)
+                }
+            }
 
 
             Log.e("Messages",check.toString())
