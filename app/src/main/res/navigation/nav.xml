@@ -9,7 +9,7 @@
         android:id="@+id/mainFragment"
         android:name="com.example.hovertextapplication.MainFragment"
         tools:layout="@layout/activity_first_page"
-        android:label="MainFragment" >
+        android:label="USSD Interface" >
         <action
             android:id="@+id/action_mainFragment_to_checkBalanceFragment"
             app:destination="@id/checkBalanceFragment" />
@@ -24,15 +24,19 @@
         android:id="@+id/checkBalanceFragment"
         tools:layout="@layout/fragment_checkbalance"
         android:name="com.example.hovertextapplication.CheckBalanceFragment"
-        android:label="CheckBalanceFragment" />
+        android:label="Check Account Balance" />
     <fragment
         android:id="@+id/sendMoneyFragment"
         tools:layout="@layout/fragment_sendmoney"
         android:name="com.example.hovertextapplication.SendMoneyFragment"
-        android:label="SendMoneyFragment" />
+        android:label="Send Money" >
+        <action
+            android:id="@+id/action_sendMoneyFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
     <fragment
         android:id="@+id/rechargeFragment"
         tools:layout="@layout/fragment_recharge"
         android:name="com.example.hovertextapplication.RechargeFragment"
-        android:label="RechargeFragment" />
+        android:label="Recharge" />
 </navigation>

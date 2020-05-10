@@ -1,8 +1,10 @@
 package com.example.hovertextapplication
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -33,6 +35,7 @@ class RechargeFragment : Fragment() {
         binding.displayPart.visibility = View.GONE
 
 
+        //Spinner Array of Banks
         ArrayAdapter.createFromResource(
             requireContext(),R.array.bank,
             android.R.layout.simple_spinner_item
@@ -44,6 +47,7 @@ class RechargeFragment : Fragment() {
         }
 
 
+        //Get All Accounts
         binding.getAccounts.setOnClickListener {
             val selectedItem  = binding.bankSpinner.selectedItem.toString()
             if(selectedItem == "Access Bank"){
@@ -55,6 +59,7 @@ class RechargeFragment : Fragment() {
             startActivityForResult(i, 0)
         }
 
+        //Recharge
         binding.recharge.setOnClickListener {
             val selectedItem  = binding.bankSpinner.selectedItem.toString()
             if(selectedItem == "Access Bank"){
@@ -74,7 +79,6 @@ class RechargeFragment : Fragment() {
             startActivityForResult(i, 0)
         }
 
-
         return binding.root
 
     }
@@ -88,9 +92,14 @@ class RechargeFragment : Fragment() {
             binding.getAccounts.visibility = View.GONE
             binding.accountList.text= check
 
+
+
+            Log.e("Messages",check.toString())
         } else if (requestCode == 0 && resultCode == Activity.RESULT_CANCELED) {
             Toast.makeText(requireContext(), "Error: " + data?.getStringExtra("error"), Toast.LENGTH_LONG).show()
         }
     }
+//Your request failed
+
 
 }
