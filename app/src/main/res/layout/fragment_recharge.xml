@@ -1,12 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <androidx.constraintlayout.widget.ConstraintLayout
+<layout>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/rootView"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:weightSum="2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/reportAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorPrimaryDark"
+            android:orientation="vertical"
+
+            >
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:src="@drawable/logo"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
             android:id="@+id/linearLayout2"
@@ -27,6 +58,7 @@
                 android:layout_height="wrap_content"
                 android:text="Select Bank"
                 android:inputType="text"
+                android:textColor="#000000"
                 android:padding="16dp" />
             <Spinner
                 android:id="@+id/bankSpinner"
@@ -37,13 +69,14 @@
 
             <Button
                 android:id="@+id/getAccounts"
-                android:onClick="saveContact"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Submit"
                 android:layout_marginEnd="16dp"
                 android:layout_weight="0.3"
-                />
+                android:background="@drawable/login_button"
+                android:text="Send"
+                android:textAllCaps="false"
+                android:textColor="@color/colorPrimaryDark" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -66,13 +99,15 @@
                     android:id="@+id/accountSelected"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Enter id for Account Displayed e.g 1"
+                    android:backgroundTint="#CBDBF6"
+                    android:hint="Enter NUBAN ID e.g 1"
                     android:padding="16dp" />
 
                 <EditText
                     android:id="@+id/account"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="#CBDBF6"
                     android:hint="Enter Amount"
                     android:padding="16dp" />
 
@@ -80,6 +115,7 @@
                     android:id="@+id/phoneNumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="#CBDBF6"
                     android:hint="Enter Phone Number"
                     android:padding="16dp" />
 
@@ -94,12 +130,12 @@
 
                     <Button
                         android:id="@+id/recharge"
-                        android:text="Recharge"
-                        android:onClick="cancel"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.3"
-                        />
+                        android:background="@drawable/login_button"
+                        android:text="Recharge"
+                        android:textColor="@color/colorPrimaryDark" />
 
 
                 </LinearLayout>
@@ -107,6 +143,8 @@
 
 
         </LinearLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
-</layout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+    </layout>

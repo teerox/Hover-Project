@@ -24,7 +24,11 @@
         android:id="@+id/checkBalanceFragment"
         tools:layout="@layout/fragment_checkbalance"
         android:name="com.example.hovertextapplication.CheckBalanceFragment"
-        android:label="Check Account Balance" />
+        android:label="Check Account Balance" >
+        <action
+            android:id="@+id/action_checkBalanceFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
     <fragment
         android:id="@+id/sendMoneyFragment"
         tools:layout="@layout/fragment_sendmoney"
@@ -38,5 +42,9 @@
         android:id="@+id/rechargeFragment"
         tools:layout="@layout/fragment_recharge"
         android:name="com.example.hovertextapplication.RechargeFragment"
-        android:label="Recharge" />
+        android:label="Recharge" >
+        <action
+            android:id="@+id/action_rechargeFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
 </navigation>

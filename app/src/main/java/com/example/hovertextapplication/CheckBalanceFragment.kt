@@ -13,6 +13,7 @@ import android.widget.Spinner
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.hovertextapplication.databinding.FragmentCheckbalanceBinding
 import com.hover.sdk.api.HoverParameters
 
@@ -92,6 +93,14 @@ class CheckBalanceFragment : Fragment() {
             binding.displayPart.visibility = View.VISIBLE
             binding.getAccounts.visibility = View.GONE
             binding.accountList.text= check
+
+            if (check != null) {
+                if (check.contains("Connection problem") || (check.contains("Connection problem"))){
+                    Toast.makeText(requireContext(),"Request Failed",Toast.LENGTH_LONG).show()
+                    val action =CheckBalanceFragmentDirections.actionCheckBalanceFragmentToMainFragment()
+                    findNavController().navigate(action)
+                }
+            }
 
         } else if (requestCode == 0 && resultCode == Activity.RESULT_CANCELED) {
             Toast.makeText(requireContext(), "Error: " + data?.getStringExtra("error"), Toast.LENGTH_LONG).show()
