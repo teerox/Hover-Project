@@ -102,6 +102,7 @@
                     android:layout_height="wrap_content"
                     android:backgroundTint="#CBDBF6"
                     android:hint="Enter NUBAN ID"
+                    android:inputType="number"
                     android:padding="16dp"
                     android:textColor="#5A5959" />
 
