@@ -57,6 +57,8 @@ class SendMoneyFragment : Fragment() {
             if(selectedItem == "Access Bank"){
                 bankSelected = accessBankId
             }
+            print(bankSelected)
+            Log.e("Bank Selected",bankSelected)
             val i = HoverParameters.Builder(requireContext())
                 .request(bankSelected)
                 .buildIntent()
@@ -127,17 +129,17 @@ class SendMoneyFragment : Fragment() {
                     check.contains("Invalid account") -> {
                         binding.displayPart.visibility = View.GONE
                         binding.getAccounts.visibility = View.VISIBLE
-                        Toast.makeText(requireContext(),"Kindly Reinitiate Transaction again",Toast.LENGTH_LONG).show()
+
                     }
                     check.contains("Select your") -> {
                         binding.displayPart.visibility = View.VISIBLE
                         binding.getAccounts.visibility = View.GONE
-                        Toast.makeText(requireContext(),"Kindly Select an Option",Toast.LENGTH_LONG).show()
+
                     }
                 }
 
                 if (check.contains("Your request failed") ){
-                    Toast.makeText(requireContext(),"Request Failed",Toast.LENGTH_LONG).show()
+
                     val action = SendMoneyFragmentDirections.actionSendMoneyFragmentToMainFragment()
                     findNavController().navigate(action)
 
@@ -148,7 +150,7 @@ class SendMoneyFragment : Fragment() {
                     binding.displayPart.visibility = View.GONE
                     binding.finalPart.visibility = View.GONE
                     binding.getAccounts.visibility = View.VISIBLE
-                    Toast.makeText(requireContext(),"Transfer Successful",Toast.LENGTH_LONG).show()
+
                 }
 
             }
