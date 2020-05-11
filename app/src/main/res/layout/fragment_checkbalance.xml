@@ -63,9 +63,8 @@
                 android:id="@+id/bankSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@android:drawable/btn_dropdown"
-
-                android:spinnerMode="dropdown" />
+                android:background="@drawable/sample"
+                android:layout_marginBottom="8dp"/>
 
             <Button
                 android:id="@+id/getAccounts"
