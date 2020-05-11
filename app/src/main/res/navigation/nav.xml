@@ -12,13 +12,26 @@
         android:label="USSD Interface" >
         <action
             android:id="@+id/action_mainFragment_to_checkBalanceFragment"
-            app:destination="@id/checkBalanceFragment" />
+            app:destination="@id/checkBalanceFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popExitAnim="@anim/slide_out_left"
+            />
         <action
             android:id="@+id/action_mainFragment_to_sendMoneyFragment"
-            app:destination="@id/sendMoneyFragment" />
+            app:destination="@id/sendMoneyFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:launchSingleTop="true"
+            app:popExitAnim="@anim/slide_out_left" />
         <action
             android:id="@+id/action_mainFragment_to_rechargeFragment"
-            app:destination="@id/rechargeFragment" />
+            app:destination="@id/rechargeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:launchSingleTop="true"
+            app:popExitAnim="@anim/slide_out_left"
+            />
     </fragment>
     <fragment
         android:id="@+id/checkBalanceFragment"
@@ -27,7 +40,13 @@
         android:label="Check Account Balance" >
         <action
             android:id="@+id/action_checkBalanceFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/mainFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:launchSingleTop="true"
+            app:popExitAnim="@anim/slide_out_left"
+
+            />
     </fragment>
     <fragment
         android:id="@+id/sendMoneyFragment"
@@ -36,7 +55,12 @@
         android:label="Send Money" >
         <action
             android:id="@+id/action_sendMoneyFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/mainFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:launchSingleTop="true"
+            app:popExitAnim="@anim/slide_out_left"
+            />
     </fragment>
     <fragment
         android:id="@+id/rechargeFragment"
@@ -45,6 +69,12 @@
         android:label="Recharge" >
         <action
             android:id="@+id/action_rechargeFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/mainFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"
+            />
     </fragment>
 </navigation>
