@@ -81,7 +81,7 @@ class SendMoneyFragment : Fragment() {
                 .request(bankSelected)
                 .extra("accountId",accountNumberId)
                 .extra("amount",amount)
-                .extra("NUBAN",accountNumber)
+                .extra("accountNumber",accountNumber)
                 .buildIntent()
             startActivityForResult(i, 0)
         }
